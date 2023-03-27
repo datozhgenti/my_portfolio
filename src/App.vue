@@ -1,26 +1,58 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <porfolioPage></porfolioPage>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+<script setup>
+import porfolioPage from "@/main_components/portfolioPage.vue";
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+/* font import */
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+
+/* starter styles of all elements */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--text-starter-color);
+  font-family: "DM Sans", sans-serif;
+}
+
+/* css variables */
+
+:root {
+  --page-background: #171717;
+  --text-starter-color: #ffffff;
+  --green-color: #27ae60;
+}
+
+/* body styles */
+
+body {
+  background: var(--page-background);
+}
+
+/* flex styles */
+
+.flex {
+  display: flex;
+}
+
+.center-flex-element {
+  justify-content: center;
+  align-items: center;
+}
+
+/* borders */
+
+#border-bottom-gray {
+  border-bottom: 1px solid #4f4f4f;
+}
+
+.border-bottom-gray {
+  border-bottom: 1px solid #4f4f4f;
 }
 </style>
