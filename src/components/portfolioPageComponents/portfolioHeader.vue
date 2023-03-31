@@ -2,7 +2,7 @@
   <header class="flex space-between">
     <div class="greeting-wrapper flex align-center">
       <div>
-        <h1>
+        <h1 class="font-48 line-height-62">
           Hi<span class="capitalize">{{
             $store.state.visitorName
               ? " " + $store.state.visitorName
@@ -10,7 +10,7 @@
           }}</span
           >, I am David Zhgenti
         </h1>
-        <p class="weight-500">Frontend Developer</p>
+        <p class="weight-500 font-18">Frontend Developer</p>
         <div class="buttons-wrapper flex space-between">
           <buttonComp backroundProp="var(--green-color)" class="relative">
             <linkComp
@@ -47,13 +47,7 @@ header {
   padding: 0 98px 47px 128px;
 }
 
-h1 {
-  font-size: 3em;
-  line-height: 62.5px;
-}
-
 p {
-  font-size: 1.125em;
   color: #828282;
   margin: 9px 0 35px;
 }
@@ -109,5 +103,17 @@ img {
 
 .capitalize {
   text-transform: capitalize;
+}
+
+.font-48 {
+  font-size: 3em;
+}
+
+.font-18 {
+  font-size: 1.125em;
+}
+
+.line-height-62 {
+  line-height: 62.5px;
 }
 </style>

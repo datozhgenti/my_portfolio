@@ -37,7 +37,6 @@ onMounted(() => {
 
 function deletePageOnStart() {
   store.commit("getVisitorName", nameInput.value.input.value);
-  console.log(store.state.visitorName);
   pageOnStartActive.value = false;
   setTimeout(() => {
     store.commit("portfolioPageShow");
