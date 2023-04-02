@@ -1,12 +1,19 @@
 <template>
   <section class="skills-section">
-    <h2 class="font-48 line-height-62 text-align-center">What i do</h2>
-    <div class="skills-wrapper flex space-between wrap">
+    <h2 class="font-48 line-height-62 text-align-center margin-bottom-102">
+      What i do
+    </h2>
+    <div class="projects-and-skills-wrapper flex space-between wrap">
       <skillCard
-        v-for="skill in skills"
+        v-for="(skill, index) in skills"
         :key="skill"
         :iconUrl="skill.icon"
         :skillName="skill.name"
+        :style="{
+          whiteSpace: indexesOfNoWrapSkill.includes(index)
+            ? 'nowrap'
+            : 'initial',
+        }"
       ></skillCard>
     </div>
   </section>
@@ -23,8 +30,18 @@ export default {
           icon: require("@/assets/dev_icons/javascript.svg"),
           name: "JAVASCRIPT ES6",
         },
-        { icon: require("@/assets/dev_icons/vuejs.svg"), name: "Vue.js 3" },
+        { icon: require("@/assets/dev_icons/vuejs.svg"), name: "VUE.JS 3" },
+        { icon: require("@/assets/dev_icons/jquery.svg"), name: "JQUERY" },
+        {
+          icon: require("@/assets/dev_icons/bootstrap.svg"),
+          name: "BOOTSTRAP 5",
+        },
+        {
+          icon: require("@/assets/dev_icons/sass.svg"),
+          name: "SASS",
+        },
       ],
+      indexesOfNoWrapSkill: [5],
     };
   },
 };
@@ -35,23 +52,29 @@ import skillCard from "../skillCardComponents/skillCard.vue";
 </script>
 
 <style scoped>
-h2 {
-  margin-bottom: 102.63px;
-}
-
 .skills-section {
   padding-bottom: 141px;
-}
-
-.skills-wrapper {
-  padding-left: 141px;
-  padding-right: 131px;
-  row-gap: 20px;
 }
 </style>
 
 <style>
 .wrap {
   flex-wrap: wrap;
+}
+
+.projects-and-skills-wrapper {
+  padding-left: 141px;
+  padding-right: 131px;
+  row-gap: 20px;
+}
+
+.margin-bottom-102 {
+  margin-bottom: 102.63px;
+}
+
+@media all and (max-width: 1348px) {
+  .projects-and-skills-wrapper {
+    justify-content: space-evenly;
+  }
 }
 </style>

@@ -15,6 +15,9 @@ export default {};
 <script setup></script>
 
 <style scoped>
+.contact-card {
+  width: 212px;
+}
 .big-circle {
   width: 62px;
   height: 62px;

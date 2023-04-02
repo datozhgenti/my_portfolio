@@ -27,6 +27,7 @@ import porfolioPage from "@/main_components/portfolioPage.vue";
   --page-background: #171717;
   --text-starter-color: #ffffff;
   --green-color: #27ae60;
+  --footer-text-color: #4f4f4f;
 }
 
 /* body styles */

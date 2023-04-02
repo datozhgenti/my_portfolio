@@ -1,5 +1,5 @@
 <template>
-  <div class="skill-card relative">
+  <div class="skill-card skill-and-project-card-sizes relative">
     <div>
       <img
         :src="iconUrl"
@@ -21,10 +21,9 @@ export default {
 
 <style scoped>
 .skill-card {
-  width: 349px;
-  height: 241px;
   background-color: #212121;
   padding: 34.86px 70px 36px 50px;
+  margin: 0 5px;
 }
 
 .skill-card::after {
@@ -58,5 +57,27 @@ h3 {
   to {
     width: 100%;
   }
+}
+
+@media all and (max-width: 385px) {
+  h3 {
+    font-size: 6vw;
+  }
+
+  .skill-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+  }
+}
+</style>
+
+<style>
+.skill-and-project-card-sizes {
+  width: 349px;
+  height: 241px;
 }
 </style>

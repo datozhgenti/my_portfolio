@@ -52,7 +52,7 @@ import linkComp from "../anchorTagComponents/linkComp.vue";
 
 <style scoped>
 nav {
-  padding: 28px 87px 0 80px;
+  padding: 28px 87px 28px 80px;
   top: 0;
   left: 0;
   right: 0;
@@ -71,6 +71,12 @@ nav {
 
 .mode-active {
   box-shadow: 0px 0px 20px 3px var(--green-color);
+}
+
+@media all and (max-width: 375px) {
+  .menu-wrapper {
+    width: 130px;
+  }
 }
 </style>
 

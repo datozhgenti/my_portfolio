@@ -1,5 +1,5 @@
 <template>
-  <header class="flex space-between">
+  <header class="flex space-between wrap">
     <div class="greeting-wrapper flex align-center">
       <div>
         <h1 class="font-48 line-height-62">
@@ -78,6 +78,31 @@ img {
 .greeting-wrapper {
   width: 453px;
 }
+
+@media all and (max-width: 1328px) {
+  header {
+    justify-content: center;
+    row-gap: 30px;
+  }
+}
+
+@media all and (max-width: 900px) {
+  .image-wrapper {
+    border: none;
+  }
+}
+
+@media all and (max-width: 821px) {
+  .image-wrapper {
+    width: 300px;
+    height: 300px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
 </style>
 
 <style>
@@ -115,5 +140,14 @@ img {
 
 .line-height-62 {
   line-height: 62.5px;
+}
+
+@media all and (max-width: 684px) {
+  header,
+  .about-bottom-wrapper,
+  .projects-and-skills-wrapper,
+  nav {
+    padding: 20px !important;
+  }
 }
 </style>
