@@ -1,5 +1,5 @@
 <template>
-  <section class="projects-section">
+  <section class="projects-section" id="projects">
     <h2 class="font-48 line-height-62 text-align-center margin-bottom-102">
       My Projects
     </h2>

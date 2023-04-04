@@ -42,6 +42,7 @@ import linkComp from "../anchorTagComponents/linkComp.vue";
 
 h2 {
   margin-bottom: 20px;
+  color: #ffffff;
 }
 </style>
 

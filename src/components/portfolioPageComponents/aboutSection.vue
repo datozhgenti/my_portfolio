@@ -1,5 +1,5 @@
 <template>
-  <section class="about-section">
+  <section class="about-section" id="about">
     <div class="about-top-wrapper text-align-center">
       <h2 class="font-48 line-height-62">About</h2>
       <div class="center-with-margin">

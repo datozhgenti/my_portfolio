@@ -20,7 +20,11 @@
             ></linkComp>
             Download CV
           </buttonComp>
-          <buttonComp borderProp="1px solid #F2F2F2">Learn More</buttonComp>
+          <a href="#about">
+            <buttonComp borderProp="1px solid #F2F2F2" class="inline-block"
+              >Learn More</buttonComp
+            >
+          </a>
         </div>
       </div>
     </div>

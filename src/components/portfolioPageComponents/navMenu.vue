@@ -11,6 +11,7 @@
           src="@/assets/burger-icon/burger-icon.svg"
           alt="burger button"
           class="burger-icon pointer block"
+          @click="openNav"
         />
       </div>
       <div
@@ -18,11 +19,39 @@
         v-for="(color, index) in colorModes"
         :class="[index === 0 ? 'mode-active' : '']"
         :key="color"
-        @click="changeColor"
+        @click="changeColorMode"
         ref="colorPaletts"
         :style="{ backgroundColor: color }"
       ></div>
     </div>
+    <teleport to="body">
+      <transition name="move-right">
+        <div
+          class="responsive-nav fixed"
+          @click.self="closeNav"
+          v-if="navActive"
+        >
+          <div class="close-img-wrapper flex justify-end">
+            <img
+              src="@/assets/close-icons/close.svg"
+              alt="close button"
+              class="close-btn pointer"
+              @click="closeNav"
+            />
+          </div>
+          <div class="responsive-nav-items-wrapper absolute text-align-center">
+            <linkComp
+              @click="closeNav"
+              v-for="item in navItems"
+              :key="item"
+              :href="item.href"
+              id="nav-item"
+              >{{ item.name }}</linkComp
+            >
+          </div>
+        </div>
+      </transition>
+    </teleport>
   </nav>
 </template>
 
@@ -30,17 +59,45 @@
 export default {
   data() {
     return {
-      colorModes: ["black", "#ffffff"],
+      colorModes: ["black", "white"],
+      navItems: [
+        { name: "Home", href: "#" },
+        { name: "About", href: "#about" },
+        { name: "What i do", href: "#skills" },
+        { name: "My Projects", href: "#projects" },
+        { name: "Get in touch", href: "#contact" },
+      ],
+      navActive: false,
     };
   },
   methods: {
-    changeColor(e) {
+    changeColorMode(e) {
       const colorPaletts = this.$refs.colorPaletts;
       for (let val of colorPaletts) {
         val.classList.remove("mode-active");
       }
 
       e.target.classList.add("mode-active");
+
+      const activeColor = e.target.style.backgroundColor;
+
+      this.colorDetect(activeColor);
+    },
+    colorDetect(activeColor) {
+      activeColor === "white"
+        ? this.defaultColorsChange("#ffffff", "#171717")
+        : this.defaultColorsChange("#171717", "#ffffff");
+    },
+    defaultColorsChange(pageBackground, textColor) {
+      const root = document.querySelector(":root");
+      root.style.setProperty("--page-background", pageBackground);
+      root.style.setProperty("--text-starter-color", textColor);
+    },
+    openNav() {
+      this.navActive = true;
+    },
+    closeNav() {
+      this.navActive = false;
     },
   },
 };
@@ -57,7 +114,11 @@ nav {
   left: 0;
   right: 0;
   z-index: 1;
-  background-color: var(--page-background);
+  background-color: #171717;
+}
+
+.nameHeader {
+  color: #ffffff;
 }
 .color-mode-btn {
   border-radius: 10px;
@@ -73,9 +134,40 @@ nav {
   box-shadow: 0px 0px 20px 3px var(--green-color);
 }
 
+.responsive-nav {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 2;
+  padding: 15px;
+}
+
+.responsive-nav-items-wrapper {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: auto;
+}
+
+.responsive-nav-items-wrapper a {
+  font-size: 2.25em;
+}
+
+.responsive-nav-items-wrapper a:not(:last-child) {
+  margin-bottom: 20px;
+}
+
 @media all and (max-width: 375px) {
   .menu-wrapper {
     width: 130px;
+  }
+}
+
+@media all and (max-width: 411px) {
+  .responsive-nav-items-wrapper a {
+    font-size: 6vw;
   }
 }
 </style>
@@ -103,5 +195,36 @@ nav {
 
 .fixed {
   position: fixed;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+body,
+html {
+  scroll-behavior: smooth;
+  transition: 1s ease-in-out;
+}
+
+#about,
+#skills,
+#projects,
+#contact {
+  scroll-margin-top: 100px;
+}
+
+#nav-item {
+  color: #ffffff;
+}
+
+.move-right-enter-from,
+.move-right-leave-to {
+  transform: translateX(-100%);
+}
+
+.move-right-enter-active,
+.move-right-leave-active {
+  transition: transform 0.5s ease;
 }
 </style>

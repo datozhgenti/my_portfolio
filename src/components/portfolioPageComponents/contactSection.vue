@@ -1,5 +1,5 @@
 <template>
-  <section class="contact-section">
+  <section class="contact-section" id="contact">
     <h2 class="font-48 line-height-62 text-align-center">Get in touch</h2>
     <div class="form-wrapper">
       <form @submit.prevent="">
