@@ -1,5 +1,5 @@
 <template>
-  <div class="contact-card text-align-center pointer">
+  <div class="contact-card text-align-center pointer opacity-0">
     <div class="big-circle border-radius-50 flex center-flex-element">
       <div class="small-circle border-radius-50"></div>
     </div>
@@ -12,7 +12,11 @@
 export default {};
 </script>
 
-<script setup></script>
+<script setup>
+import observeAnimation from "@/composables/observe";
+
+observeAnimation(".contact-card", "fade-right", 1);
+</script>
 
 <style scoped>
 .contact-card {
@@ -42,6 +46,20 @@ p {
 </style>
 
 <style>
+@keyframes fade-right {
+  from {
+    transform: translateX(-40px);
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.fade-right {
+  animation: fade-right 0.5s linear forwards;
+}
+
 .line-height-23 {
   line-height: 23.44px;
 }

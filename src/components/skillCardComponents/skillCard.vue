@@ -1,5 +1,5 @@
 <template>
-  <div class="skill-card skill-and-project-card-sizes relative">
+  <div class="skill-card skill-and-project-card-sizes relative opacity-0">
     <div>
       <img
         :src="iconUrl"
@@ -17,6 +17,12 @@
 export default {
   props: ["iconUrl", "skillName"],
 };
+</script>
+
+<script setup>
+import observeAnimation from "@/composables/observe";
+
+observeAnimation(".skill-card", "fade-left", 1);
 </script>
 
 <style scoped>
@@ -79,5 +85,19 @@ h3 {
 .skill-and-project-card-sizes {
   width: 349px;
   height: 241px;
+}
+
+@keyframes fade-left {
+  from {
+    transform: translate(40px);
+  }
+  to {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
+.fade-left {
+  animation: fade-left 0.5s linear forwards;
 }
 </style>

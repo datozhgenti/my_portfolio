@@ -1,5 +1,5 @@
 <template>
-  <div class="project-card skill-and-project-card-sizes relative">
+  <div class="project-card skill-and-project-card-sizes relative opacity-0">
     <img
       :src="projectImg"
       alt="restaraunt project"
@@ -29,6 +29,9 @@ export default {
 <script setup>
 import buttonComp from "../buttonComponents/buttonComp.vue";
 import linkComp from "../anchorTagComponents/linkComp.vue";
+import observeAnimation from "@/composables/observe";
+
+observeAnimation(".project-card", "fade-right", 1);
 </script>
 
 <style scoped>
@@ -38,6 +41,18 @@ import linkComp from "../anchorTagComponents/linkComp.vue";
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.8);
+}
+
+.project-card {
+  overflow: hidden;
+}
+
+img {
+  transition: 1s transform ease-in;
+}
+
+.project-card:hover img {
+  transform: scale(1.5);
 }
 
 h2 {

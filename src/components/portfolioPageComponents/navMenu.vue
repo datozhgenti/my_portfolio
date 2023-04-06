@@ -45,6 +45,7 @@
               v-for="item in navItems"
               :key="item"
               :href="item.href"
+              class="weight-700"
               id="nav-item"
               >{{ item.name }}</linkComp
             >
@@ -80,6 +81,8 @@ export default {
       e.target.classList.add("mode-active");
 
       const activeColor = e.target.style.backgroundColor;
+
+      document.querySelector("body").style.transition = "1s ease-in-out";
 
       this.colorDetect(activeColor);
     },
@@ -204,7 +207,6 @@ nav {
 body,
 html {
   scroll-behavior: smooth;
-  transition: 1s ease-in-out;
 }
 
 #about,
@@ -216,6 +218,10 @@ html {
 
 #nav-item {
   color: #ffffff;
+}
+
+.weight-700 {
+  font-weight: 700;
 }
 
 .move-right-enter-from,
