@@ -2,16 +2,25 @@
   <section class="contact-section" id="contact">
     <h2 class="font-48 line-height-62 text-align-center">Get in touch</h2>
     <div class="form-wrapper">
-      <form @submit.prevent="">
+      <form @submit.prevent="sendEmail">
         <div class="form grid space-between center-with-margin">
           <inputComp
-            v-for="input in inputs"
+            v-for="(input, index) in inputs"
             :key="input"
             :inputType="input.type"
             :placeholderText="input.placeholder"
+            @keydown="inputValidation(index, $event)"
+            :pattern="input.pattern"
+            ref="contactInput"
+            required
+            autocomplete="off"
           ></inputComp>
 
-          <textarea placeholder="Message"></textarea>
+          <textarea
+            placeholder="Message"
+            ref="contactTextarea"
+            required
+          ></textarea>
           <div class="submit-btn-wrapper text-align-center">
             <buttonComp
               class="block weight-500 inline-block"
@@ -27,16 +36,48 @@
 </template>
 
 <script>
+import Email from "@/smtp.js";
 export default {
   data() {
     return {
       inputs: [
         { type: "text", placeholder: "Name" },
         { type: "text", placeholder: "Last name" },
-        { type: "email", placeholder: "Email" },
-        { type: "tel", placeholder: "Phone Number" },
+        {
+          type: "email",
+          placeholder: "Email",
+        },
+        { type: "number", placeholder: "Phone Number" },
       ],
     };
+  },
+  methods: {
+    sendEmail() {
+      const contactsInputs = this.$refs.contactInput;
+      const conactTextarea = this.$refs.contactTextarea;
+
+      console.log(conactTextarea.value);
+
+      Email.send({
+        SecureToken: "45ae150e-84b4-43e6-b2b8-1cfb51aac945",
+        To: "datozhgenti1998@gmail.com",
+        From: "datozhgenti1998@gmail.com",
+        Subject: `from ${contactsInputs[0].input.value} ${contactsInputs[1].input.value}`,
+        Body: `<b>Email:</b> ${contactsInputs[2].input.value} <br> <b>Phone Number:</b> ${contactsInputs[3].input.value} <br> <b>message:</b> ${conactTextarea.value} `,
+      }).then((message) => {
+        alert(message);
+        conactTextarea.value = "";
+
+        contactsInputs.forEach((val) => {
+          val.input.value = "";
+        });
+      });
+    },
+    inputValidation(index, e) {
+      if (index === 0 || index === 1) {
+        allowOnlyLetters(e);
+      }
+    },
   },
 };
 </script>
@@ -44,9 +85,27 @@ export default {
 <script setup>
 import inputComp from "../inputComponents/inputComp.vue";
 import buttonComp from "../buttonComponents/buttonComp.vue";
+import allowOnlyLetters from "@/composables/allowOnlyLetters";
 </script>
 
 <style scoped>
+input:required:focus:invalid {
+  border-bottom-color: red !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  appearance: textfield;
+}
+
+textarea:required:focus:invalid {
+  border-color: red !important;
+}
 .contact-section {
   margin: 0 7px;
   margin-bottom: 70px;

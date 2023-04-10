@@ -5,6 +5,7 @@ export default createStore({
     return {
       portfolioPageActive: false,
       visitorName: "",
+      pageLoaded: false,
     };
   },
   mutations: {
@@ -13,6 +14,9 @@ export default createStore({
     },
     getVisitorName(state, name) {
       state.visitorName = name;
+    },
+    whenPageLoaded(state) {
+      state.pageLoaded = true;
     },
   },
 });

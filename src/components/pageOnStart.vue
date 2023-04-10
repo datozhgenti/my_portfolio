@@ -8,6 +8,8 @@
           style="font-size: 4vw"
           ref="nameInput"
           @keydown.enter="deletePageOnStart"
+          @keydown="allowOnlyLetters"
+          maxlength="13"
         ></inputComp>
         <img
           src="@/assets/arrowIcons/arrow-right.svg"
@@ -24,6 +26,7 @@
 import inputComp from "./inputComponents/inputComp.vue";
 import { ref, onMounted } from "vue";
 import { useStore } from "vuex";
+import allowOnlyLetters from "@/composables/allowOnlyLetters";
 
 const store = useStore();
 
