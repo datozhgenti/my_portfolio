@@ -3,7 +3,7 @@
     <h2 class="font-48 line-height-62 text-align-center margin-bottom-102">
       My Projects
     </h2>
-    <div class="projects-and-skills-wrapper flex space-between wrap">
+    <div class="projects-and-skills-wrapper flex space-evently wrap">
       <projectCard
         v-for="project in projects"
         :key="project"

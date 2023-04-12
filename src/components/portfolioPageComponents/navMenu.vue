@@ -53,6 +53,11 @@
         </div>
       </transition>
     </teleport>
+    <transition name="fade-top">
+      <div class="sent-message absolute" v-if="$store.state.messageSent">
+        <p>Message Sent Successfully!</p>
+      </div>
+    </transition>
   </nav>
 </template>
 
@@ -118,6 +123,14 @@ nav {
   right: 0;
   z-index: 1;
   background-color: #171717;
+}
+
+.sent-message {
+  background-color: var(--green-color);
+  left: 50%;
+  top: 105px;
+  transform: translate(-50%);
+  padding: 20px;
 }
 
 .nameHeader {
@@ -232,5 +245,15 @@ html {
 .move-right-enter-active,
 .move-right-leave-active {
   transition: transform 0.5s ease;
+}
+
+.fade-top-enter-from,
+.fade-top-leave-to {
+  opacity: 0;
+}
+
+.fade-top-enter-active,
+.fade-top-leave-active {
+  transition: 1s linear;
 }
 </style>

@@ -56,16 +56,14 @@ export default {
       const contactsInputs = this.$refs.contactInput;
       const conactTextarea = this.$refs.contactTextarea;
 
-      console.log(conactTextarea.value);
-
       Email.send({
         SecureToken: "45ae150e-84b4-43e6-b2b8-1cfb51aac945",
         To: "datozhgenti1998@gmail.com",
         From: "datozhgenti1998@gmail.com",
         Subject: `from ${contactsInputs[0].input.value} ${contactsInputs[1].input.value}`,
         Body: `<b>Email:</b> ${contactsInputs[2].input.value} <br> <b>Phone Number:</b> ${contactsInputs[3].input.value} <br> <b>message:</b> ${conactTextarea.value} `,
-      }).then((message) => {
-        alert(message);
+      }).then(() => {
+        this.$store.commit("messageSentAlertDisplay");
         conactTextarea.value = "";
 
         contactsInputs.forEach((val) => {

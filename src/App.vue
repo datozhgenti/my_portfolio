@@ -56,4 +56,13 @@ body {
 .border-bottom-gray {
   border-bottom: 1px solid #4f4f4f;
 }
+
+::-webkit-scrollbar {
+  background-color: #171717;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--green-color);
+  border-radius: 10px;
+}
 </style>

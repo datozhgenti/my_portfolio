@@ -11,7 +11,7 @@
         </p>
       </div>
     </div>
-    <div class="about-bottom-wrapper flex space-between wrap">
+    <div class="about-bottom-wrapper flex space-evently wrap">
       <contactCard
         v-for="(info, index) in contactInfos"
         :key="info"
@@ -114,5 +114,9 @@ p {
 <style>
 .text-align-center {
   text-align: center;
+}
+
+.space-evently {
+  justify-content: space-evenly;
 }
 </style>

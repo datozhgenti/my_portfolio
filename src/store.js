@@ -6,6 +6,7 @@ export default createStore({
       portfolioPageActive: false,
       visitorName: "",
       pageLoaded: false,
+      messageSent: false,
     };
   },
   mutations: {
@@ -17,6 +18,13 @@ export default createStore({
     },
     whenPageLoaded(state) {
       state.pageLoaded = true;
+    },
+    messageSentAlertDisplay(state) {
+      state.messageSent = true;
+
+      setTimeout(() => {
+        state.messageSent = false;
+      }, 2000);
     },
   },
 });
