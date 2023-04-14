@@ -47,7 +47,7 @@ export default {
           type: "email",
           placeholder: "Email",
         },
-        { type: "number", placeholder: "Phone Number" },
+        { type: "tel", placeholder: "Phone Number" },
       ],
     };
   },
