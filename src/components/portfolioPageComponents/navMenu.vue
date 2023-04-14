@@ -181,7 +181,7 @@ nav {
   }
 }
 
-@media all and (max-width: 411px) {
+@media all and (max-width: 430px) {
   .responsive-nav-items-wrapper a {
     font-size: 6vw;
   }
