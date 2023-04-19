@@ -14,7 +14,7 @@
         <div class="buttons-wrapper flex space-between">
           <buttonComp backroundProp="var(--green-color)" class="relative">
             <linkComp
-              hrefProp="https://6439ad9028d505391e6da0c4--clinquant-platypus-d1adc8.netlify.app/david_zhgenti-cv.pdf"
+              hrefProp="https://clinquant-platypus-d1adc8.netlify.app/david_zhgenti-cv.pdf"
               class="absolute anchorInBtn"
               target="_"
               download
