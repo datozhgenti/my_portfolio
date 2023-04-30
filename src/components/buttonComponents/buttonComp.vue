@@ -24,6 +24,7 @@ button {
   font-size: 14px;
   padding: 12px 27px;
   width: 143px;
+  white-space: nowrap;
 }
 </style>
 
