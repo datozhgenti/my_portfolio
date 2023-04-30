@@ -12,6 +12,7 @@
             @keydown="inputValidation(index, $event)"
             :pattern="input.pattern"
             ref="contactInput"
+            class="font-16"
             required
             autocomplete="off"
           ></inputComp>
@@ -19,6 +20,7 @@
           <textarea
             placeholder="Message"
             ref="contactTextarea"
+            class="font-16"
             required
           ></textarea>
           <div class="submit-btn-wrapper text-align-center">

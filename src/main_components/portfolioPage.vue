@@ -55,6 +55,6 @@ p {
 }
 
 .font-14 {
-  font-size: 0.875em;
+  font-size: 14px;
 }
 </style>

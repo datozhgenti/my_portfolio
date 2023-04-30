@@ -22,7 +22,7 @@
         </template>
         <template #contactInfo>
           <linkComp
-            class="infoAnchor"
+            class="infoAnchor font-16"
             :target="info.linkTarget"
             :hrefProp="info.link"
             >{{ info.info }}</linkComp
@@ -118,5 +118,9 @@ p {
 
 .space-evently {
   justify-content: space-evenly;
+}
+
+.font-16 {
+  font-size: 16px;
 }
 </style>

@@ -168,7 +168,7 @@ nav {
 }
 
 .responsive-nav-items-wrapper a {
-  font-size: 2.25em;
+  font-size: 36px;
 }
 
 .responsive-nav-items-wrapper a:not(:last-child) {
@@ -198,7 +198,7 @@ nav {
 }
 
 .font-36 {
-  font-size: 2.25em;
+  font-size: 36px;
 }
 
 .pointer {

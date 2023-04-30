@@ -7,7 +7,7 @@
     />
     <div class="overlay flex align-center justify-center absolute">
       <div class="overlay-content text-align-center">
-        <h2>{{ projectName }}</h2>
+        <h2 class="font-24">{{ projectName }}</h2>
         <linkComp :href="projectUrl" target="_" class="inline-block">
           <buttonComp
             class="block weight-500"
@@ -84,5 +84,9 @@ h2 {
 
 .inline-block {
   display: inline-block;
+}
+
+.font-24 {
+  font-size: 24px;
 }
 </style>

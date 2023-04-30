@@ -227,11 +227,11 @@ img {
 }
 
 .font-48 {
-  font-size: 3em;
+  font-size: 48px;
 }
 
 .font-18 {
-  font-size: 1.125em;
+  font-size: 18px;
 }
 
 .line-height-62 {
